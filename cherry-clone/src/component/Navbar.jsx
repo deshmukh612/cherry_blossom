@@ -2,6 +2,24 @@ import React from "react";
 import logo from "../assets/logo.svg"
 
 const Navbar = (props) => {
+  const navbarOptions = [
+    {
+      iconName: "person_outline",
+      label: "Sign In"
+    },
+    {
+      iconName: "shopping_bag",
+      label: "Cart"
+    },
+    {
+      iconName: "support",
+      label: "Help"
+    },
+    {
+      iconName: "search",
+      label: "Search"
+    },
+  ] 
   return (
     <section className="navbar">
       <div className="container">
@@ -11,18 +29,11 @@ const Navbar = (props) => {
           <span className="state">{props.state}, {props.country}</span>
         </div>
         <div className="navbar-options">
-          <div className="navbar-option">
-            <span className="material-icons"> person_outline</span> Sign In
+          {navbarOptions.map((navbarOption, index) => (
+            <div key={index} className="navbar-option">
+            <span className="material-icons">{navbarOption.iconName}</span> {navbarOption.label}
           </div>
-          <div className="navbar-option">
-            <span className="material-icons">shopping_bag</span> Cart
-          </div>
-          <div className="navbar-option">
-            <span className="material-icons">support</span> Help
-          </div>
-          <div className="navbar-option">
-            <span className="material-icons">search</span> Search
-          </div>
+          ))}
         </div>
       </div>
     </section>
